@@ -18,5 +18,6 @@ CREATE TABLE employee (
     firstName VARCHAR(20) NOT NULL,
     lastName VARCHAR(20) NOT NULL,
     posID INT NOT NULL,
-    managerID INT
-)
+    managerID INT,
+    primary key (id)
+);
