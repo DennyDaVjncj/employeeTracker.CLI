@@ -31,6 +31,9 @@ Design the following database schema containing three tables:
 Build a command-line application that at a minimum allows the user to:
 
   * Add departments, roles, employees
+  <!--
+  -configure interface to prompt user in defining departments, roles & workers 
+  -->
 
   * View departments, roles, employees
 

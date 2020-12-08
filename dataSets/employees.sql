@@ -1,5 +1,5 @@
-CREATE DATABASE bigBusiness;
-USE bigBusiness;
+CREATE DATABASE daVjncjCorp;
+USE daVjncjCorp;
 
 CREATE TABLE department (
     id INT NOT NULL,
@@ -7,10 +7,10 @@ CREATE TABLE department (
     PRIMARY KEY (id)
 );
 CREATE TABLE jobFunction (
-    id INT NOT NULL,
-    posTitle VARCHAR(25) NOT NULL,
-    salary DECIMAL(10,5) NOT NULL,
-    departmentID INT NOT NULL,
+    id INT,
+    posTitle VARCHAR(25),
+    salary DECIMAL(10,5),
+    departmentID INT,
     PRIMARY KEY (id)
 );
 CREATE TABLE employee (
