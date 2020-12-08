@@ -1,9 +1,8 @@
 const inquisition=require('inquirer');
-const connectTheDots=require('../connection/connect')
 
 const decisionMaker=()=>{
     inquisition.prompt({
-        name:'decision1',
+        name:'decision0',
         type:'list',
         message:'Whats the first order of action?',
         choices:[
@@ -20,6 +19,18 @@ const decisionMaker=()=>{
             case 'Name your employees':
                 configureEmployees();
                 break;
+            case 'Go home for the day':
+                theWalkHome();
+                break;
         }
     })
-}
+    const configureDepartment=()=>inquisition.prompt([
+        {
+            name:'decision1',
+            type:'input',
+            message:"What's the name of your new department?"
+        }
+    ]).then(newDep=>{
+        const newDept=new Department//follow syntax to complete logic
+    })
+module.exports=decisionMaker();
