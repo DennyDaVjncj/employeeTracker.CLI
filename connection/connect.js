@@ -14,6 +14,5 @@ let link=myDolphin.createConnection({
 
 link.connect(sin=>{
     if(sin)throw sin;
-    decisionMaker();//hypothetical hoisted function
+    ux();//hypothetical hoisted function
 });
-module.exports='connection/connect.js'
