@@ -1,5 +1,6 @@
-CREATE DATABASE daVjncjCorp;
-USE daVjncjCorp;
+DROP DATABASE IF EXISTS daVjncjCorp_data
+CREATE DATABASE daVjncjCorp_data;
+USE daVjncjCorp_data;
 
 CREATE TABLE department (
     id INT NOT NULL,
