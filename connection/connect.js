@@ -1,7 +1,6 @@
 const inquisition=require('inquirer');//interface
 const myDolphin=require('mysql');//database link
 require('dotenv').config();
-const ux=require('../UX/userExperience.js');
 
 //configured connection to sql
 let link=myDolphin.createConnection({
@@ -9,10 +8,8 @@ let link=myDolphin.createConnection({
     port:3306,
     user:'root',
     password:'root',
-    database:'daVjncjCorp'
+    database:'daVjncjCorp_data'
 });
 
-link.connect(sin=>{
-    if(sin)throw sin;
-    ux();//hypothetical hoisted function
-});
+link.connect(console.log('live link on port: '+link.port));
+module.exports=link;
