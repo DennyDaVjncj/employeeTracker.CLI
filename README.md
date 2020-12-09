@@ -32,10 +32,16 @@ Build a command-line application that at a minimum allows the user to:
 
   * Add departments, roles, employees
   <!--
-  -configure interface to prompt user in defining departments, roles & workers 
+  -configure interface to prompt user in defining departments, roles & workers
+  -I need to create classes for departments, employees & roles
+  -will have to invoke 'new' instances thereof
+  -
   -->
 
-  * View departments, roles, employees
+  * View departments, roles, employees:
+  <!-- 
+  -make use of the 'console.table' dependancy
+  -->
 
   * Update employee roles
 

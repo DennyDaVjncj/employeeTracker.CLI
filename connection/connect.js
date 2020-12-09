@@ -11,5 +11,5 @@ let link=myDolphin.createConnection({
     database:'daVjncjCorp_data'
 });
 
-link.connect(console.log('live link on port: '+link.port));
+link.connect(console.log('live link on port: '+myDolphin.port));
 module.exports=link;
