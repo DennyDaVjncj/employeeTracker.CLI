@@ -1,4 +1,5 @@
-const inquisition=require('inquirer');
+const inquisition=require('inquirer');//interface
+const link=require('../connection/connect');
 
 const decisionMaker=()=>{
     inquisition.prompt({
@@ -23,7 +24,7 @@ const decisionMaker=()=>{
                 theWalkHome();
                 break;
         }
-    })
+    });
     const configureDepartment=()=>inquisition.prompt([
         {
             name:'decision1',
@@ -32,5 +33,8 @@ const decisionMaker=()=>{
         }
     ]).then(newDep=>{
         const newDept=new Department//follow syntax to complete logic
-    })
-module.exports=decisionMaker();
+        //use user input to seed into database
+    })};
+    module.exports=decisionMaker();
+
+//take the path of least resistance
