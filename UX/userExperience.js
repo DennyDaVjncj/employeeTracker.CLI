@@ -1,16 +1,23 @@
 const inquisition=require('inquirer');//interface
-const link=require('../connection/connect');
+const link=require('../connection/connect');//database connection weaponized
+const pocketProjector=require('console.table')//used to display table data winthin terminal
 
-const decisionMaker=()=>{
+// console.table([
+//     {
+
+//     }
+// ])
+
+let decisionMaker=()=>{
     inquisition.prompt({
         name:'decision0',
         type:'list',
-        message:'Whats the first order of action?',
+        message:'Whats your first order of action as CEO?',
         choices:[
-            'Create department','Define job functions','Name your employees','Go home'
+            'Create new department','Define job functions','Onboard employees','Go home & enjoy a sweet red'
         ]
-    }).then(action=>{
-        switch(action.decision1){
+    }).then(executiveDesicion=>{
+        switch(executiveDesicion.decision0){
             case 'Make department':
                 configureDepartment()//undefined hoisted function
                 break;
@@ -23,18 +30,46 @@ const decisionMaker=()=>{
             case 'Go home for the day':
                 theWalkHome();
                 break;
+            executiveAction()//hoisted function to drive logic    
         }
     });
+    //if the choice is to add a department, I need to replicate a table & seed into it
     const configureDepartment=()=>inquisition.prompt([
         {
             name:'decision1',
             type:'input',
-            message:"What's the name of your new department?"
+            message:"What's the name of your new department?"            
+        },
+        {
+            name:'decision2',
+            type:'confirm',
+            message:'Is there an indentifier for this department?'
         }
-    ]).then(newDep=>{
-        const newDept=new Department//follow syntax to complete logic
+    ]).then(executiveDesicion=>{
+        const bossMove=executiveDesicion.decision1;//weaponize user res
+        link.query(
+            'INSERT INTO department SET ?',
+            {
+                departmentName:bossMove
+            },
+            clog=>{
+                if(clog)throw clog;
+                console.log('Quality decision boss!');
+                executiveAction()
+            }
+        )
         //use user input to seed into database
+        //look into how I can create new instances of tables based on user choice
+        //
     })};
-    module.exports=decisionMaker();
+    
+    const executiveAction=()=>{
+        inquisition.prompt({
+            name:'goHome',
+            type:
+        })
+    }
+    
+    decisionMaker();//app trigger(pew pew)
 
 //take the path of least resistance
