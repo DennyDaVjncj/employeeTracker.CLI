@@ -1,9 +1,10 @@
 const inquisition=require('inquirer');//interface
 const myDolphin=require('mysql');//database link
-require('dotenv').config();
+require('dotenv').config();//package for securing certain info
+const crayons=require('chalk')
 
 //configured connection to sql
-let link=myDolphin.createConnection({
+var link=myDolphin.createConnection({
     host:'localhost',
     port:3306,
     user:'root',
@@ -11,5 +12,5 @@ let link=myDolphin.createConnection({
     database:'daVjncjCorp_data'
 });
 
-link.connect(console.log('live link on port: '+myDolphin.port));
+link.connect(console.log(link));
 module.exports=link;
