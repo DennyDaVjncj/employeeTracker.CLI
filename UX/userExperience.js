@@ -39,18 +39,13 @@ let decisionMaker=()=>{
             name:'decision1',
             type:'input',
             message:"What's the name of your new department?"            
-        },
-        {
-            name:'decision2',
-            type:'confirm',
-            message:'Is there an indentifier for this department?'
         }
     ]).then(executiveDesicion=>{
-        const bossMove=executiveDesicion.decision1;//weaponize user res
+        executiveDesicion.decision1;//weaponize user res
         link.query(
             'INSERT INTO department SET ?',
             {
-                departmentName:bossMove
+                departmentName:executiveDesicion.decision1
             },
             clog=>{
                 if(clog)throw clog;
@@ -60,13 +55,16 @@ let decisionMaker=()=>{
         )
         //use user input to seed into database
         //look into how I can create new instances of tables based on user choice
-        //
+        
+        //if user wants new role: ask for title of role, salary, dept.id-->user will have to choos specific dept-->provide list to choos from-->get add [whatever] working, then view [whatever] working, then move on to next
+        //I need to be able to read from all departments, include a read department function before adding other tables
+        //once able to view dataSet on demand, move on to next configuration-->follow this sequence to completion
     })};
     
     const executiveAction=()=>{
         inquisition.prompt({
-            name:'goHome',
-            type:
+            name:'goHome'
+            // type:
         })
     }
     
