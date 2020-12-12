@@ -15,11 +15,11 @@ let decisionMaker=()=>{
         type:'list',
         message:'Whats your first order of action as CEO?',
         choices:[
-            'Create new department','Define job functions','Onboard employees','Drive Tesla to my 2 story loft'
+            'Create a new department','Define a job function','Onboard employee','Drive sType home'
         ]
     }]).then(executiveDesicion=>{
-        switch(executiveDesicion.name){
-            case 'Make department':
+        switch(executiveDesicion.decision0){
+            case 'Create a new department':
                 configureDepartment()//undefined hoisted function
                 break;
             case 'Define job functions':
@@ -29,8 +29,7 @@ let decisionMaker=()=>{
                 configureEmployees();
                 break;
             case 'Go home for the day':
-                getInMyTesla()                
-                //hoisted function to drive logic    
+                getInMyTesla()                  
         }
     });
     //if the choice is to add a department, I need to replicate a table & seed into it
@@ -38,10 +37,12 @@ let decisionMaker=()=>{
         {
             name:'decision1',
             type:'input',
-            message:"What's the name of your new department?"            
+            message:"What's the name of daVjncjCorp's latest department?"            
         }
-    ]).then(executiveDesicion=>{
-        executiveDesicion.name;//weaponize user res
+    ]).then((executiveDesicion) =>
+    {
+        console.log('competency confirmed')
+        executiveDesicion.decision1;//weaponize user res
         link.query(
             'INSERT INTO department SET ?',
             {
@@ -49,11 +50,14 @@ let decisionMaker=()=>{
             },
             clog=>{
                 if(clog)throw clog;
-                console.log('Quality decision boss!');
+                console.log('effective logic cheif!');
                 getInMyTesla()
             }
         )
     })};
+    const configureJobFunctions=()=>{
+        console.log('effective logic cheif!');
+    }
     //use user input to seed into database
     //look into how I can create new instances of tables based on user choice
     
