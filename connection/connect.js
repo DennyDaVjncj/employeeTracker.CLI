@@ -3,7 +3,7 @@ const myDolphin=require('mysql');//database link
 require('dotenv').config();//package for securing certain info
 const crayons=require('chalk')
 
-//configured connection to sql
+//configured connection to sql,CONFIGURE ENV VARIABLES
 var link=myDolphin.createConnection({
     host:'localhost',
     port:3306,
