@@ -4,21 +4,21 @@ USE daVjncjCorp_data;
 
 CREATE TABLE department (
     id INT AUTO_INCREMENT NOT NULL,
-    departmentName VARCHAR(25) NOT NULL,
+    name VARCHAR(25) NOT NULL,
     PRIMARY KEY (id)
 );
-CREATE TABLE jobFunction (
+CREATE TABLE role (
     id INT AUTO_INCREMENT NOT NULL,
-    posTitle VARCHAR(25),
+    title VARCHAR(25),
     salary DECIMAL(10,5),
     departmentID INT,
     PRIMARY KEY (id)
 );
 CREATE TABLE employee (
     id INT AUTO_INCREMENT NOT NULL,
-    firstName VARCHAR(20) NOT NULL,
-    lastName VARCHAR(20) NOT NULL,
-    posID INT NOT NULL,
-    managerID INT,
+    firstName VARCHAR(30) NOT NULL,
+    lastName VARCHAR(30) NOT NULL,
+    roleID INT NOT NULL,
+    managerID INT, --needs further consideration
     primary key (id)
 );
