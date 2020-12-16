@@ -12,5 +12,8 @@ var link=myDolphin.createConnection({
     database:'daVjncjCorp_data'
 });
 
-link.connect(console.log("You're proving yourself a worthy CEO!"));
+link.connect(scandal=>{
+    if(scandal)throw scandal;
+    console.log("you're proving yourself a worthy CEO!")
+});
 module.exports=link;
