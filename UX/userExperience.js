@@ -4,7 +4,7 @@ const pocketProjector=require('console.table')//used to display table data winth
 
 // console.table([
 //     {
-
+        
 //     }
 // ])
 
@@ -20,33 +20,32 @@ let decisionMaker=()=>{
     }]).then(executiveDesicion=>{
         switch(executiveDesicion.decision0){
             case 'Create a new department':
-                configureDepartment()//undefined hoisted function
+                createNewDept()//undefined hoisted function
                 break;
-            case 'Define job functions':
-                configureJobFunctions();
+            case 'Define a job function':
+                defineJobFunctions();
                 break;
-            case 'Name your employees':
-                configureEmployees();
+            case 'Onboard employee':
+                onboardEmployee();
                 break;
-            case 'Go home for the day':
-                getInMyTesla()                  
+            case 'Drive sType home':
+                getInMyTesla()//hoisted function: for continuing logic flow             
         }
     });
     //if the choice is to add a department, I need to replicate a table & seed into it
-    const configureDepartment=()=>inquisition.prompt([
+    const createNewDept=()=>inquisition.prompt([
         {
             name:'decision1',
             type:'input',
             message:"What's the name of daVjncjCorp's latest department?"            
         }
-    ]).then((executiveDesicion) =>
+    ]).then(executiveDesicion=>
     {
-        console.log('competency confirmed')
-        executiveDesicion.decision1;//weaponize user res
+        console.log(executiveDesicion);
         link.query(
             'INSERT INTO department SET ?',
             {
-                departmentName:executiveDesicion.desicion1
+                departmentName:executiveDesicion.decision1
             },
             clog=>{
                 if(clog)throw clog;
@@ -55,8 +54,37 @@ let decisionMaker=()=>{
             }
         )
     })};
-    const configureJobFunctions=()=>{
+    const defineJobFunctions=()=>{
         console.log('effective logic cheif!');
+        inquisition.prompt([
+            {
+                name:'decision2',
+                type:'list',
+                message:'What job function do you want to fill first?',
+                choices:['Executive assistant','Marketing director','Cheif financial officer','Pause operations for the day']
+            }
+        ]).then(filledPosition=>{
+            switch(filledPosition){
+                case 'Executive assistant':
+                    hireExec();//preDefined function
+                case 'Marketing director':
+                    hireMarketingExec()
+                    break;
+                case 'Cheif financial officer':
+                    hireCFO();
+                    break;
+                case 'Pause operations for the day':
+                    pauseOperations();                    
+            }
+        });
+    const onboardEmployee=()=>{
+        console.log('settling into your new position are you?');
+        inquisition.prompt([
+            {
+
+            }
+        ])
+    }
     }
     //use user input to seed into database
     //look into how I can create new instances of tables based on user choice

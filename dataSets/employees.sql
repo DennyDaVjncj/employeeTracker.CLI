@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS daVjncjCorp_data
+DROP DATABASE IF EXISTS daVjncjCorp_data,
 CREATE DATABASE daVjncjCorp_data;
 USE daVjncjCorp_data;
 
 CREATE TABLE department (
     id INT AUTO_INCREMENT NOT NULL,
-    departmentName VARCHAR(25) NOT NULL
+    departmentName VARCHAR(25) NOT NULL,
     PRIMARY KEY (id)
 );
 CREATE TABLE jobFunction (
