@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS daVjncjCorp_data,
+DROP DATABASE IF EXISTS daVjncjCorp_data;
 CREATE DATABASE daVjncjCorp_data;
 USE daVjncjCorp_data;
 
@@ -19,6 +19,6 @@ CREATE TABLE employee (
     firstName VARCHAR(30) NOT NULL,
     lastName VARCHAR(30) NOT NULL,
     roleID INT NOT NULL,
-    managerID INT, --needs further consideration
+    managerID INT,
     primary key (id)
 );

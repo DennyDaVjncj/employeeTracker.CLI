@@ -29,7 +29,7 @@ let decisionMaker=()=>{
                 onboardEmployee();
                 break;
             case 'Drive sType home':
-                getInMyTesla()//hoisted function: for continuing logic flow             
+                process.exit(0)//hoisted function: for continuing logic flow          
         }
     })};
 
@@ -59,13 +59,13 @@ let decisionMaker=()=>{
         console.log('effective logic cheif!');
         inquisition.prompt([
             {
-                name:'decision2',
+                name:'desicion2',
                 type:'list',
                 message:'What job function do you want to fill first?',
                 choices:['Executive assistant','Marketing director','Cheif financial officer','Pause operations for the day']
             }
         ]).then(filledPosition=>{
-            switch(filledPosition){
+            switch(filledPosition.desicion2){
                 case 'Executive assistant':
                     hireExec();//preDefined function
                 case 'Marketing director':
@@ -74,8 +74,8 @@ let decisionMaker=()=>{
                 case 'Cheif financial officer':
                     hireCFO();
                     break;
-                case 'Pause operations for the day':
-                    getInMyTesla();                    
+                case 'drive sType home':
+                   process.exit(0);                    
             }
         })};
     const onboardEmployee=()=>{
@@ -103,15 +103,20 @@ let decisionMaker=()=>{
             choices:['Add another department','Define job functions','Onboard employees','Pause operations for the day']            
         }
     ]).then(executiveDesicion=>{
-            switch(executiveDesicion.name){
+            switch(executiveDesicion.desicions){
                 case 'Add another department':
                     configureDepartment();
+                    break;
                 case 'Define job functions':
                     configureJobFunctions();
+                    break;
                 case 'Onboard employees':
                     configureEmployees();
+                    break;
                 case 'Pause operations for the day':
-                    getInMyTesla();//hoisted function for concluding app
+                    console.log('got some troubleshooting to do');//hoisted function for concluding app
+                    process.exit(0);//consider console.table usage
+
             }
         })
     }   
