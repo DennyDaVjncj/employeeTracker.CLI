@@ -20,7 +20,7 @@ let decisionMaker=()=>{
     }]).then(executiveDesicion=>{
         switch(executiveDesicion.decision0){
             case 'Create a new department':
-                createNewDept()//undefined hoisted function
+                createNewDept()//preDefined hoisted-function
                 break;
             case 'Define a job function':
                 defineJobFunctions();
@@ -31,7 +31,8 @@ let decisionMaker=()=>{
             case 'Drive sType home':
                 getInMyTesla()//hoisted function: for continuing logic flow             
         }
-    });
+    })};
+
     //if the choice is to add a department, I need to replicate a table & seed into it
     const createNewDept=()=>inquisition.prompt([
         {
@@ -39,13 +40,12 @@ let decisionMaker=()=>{
             type:'input',
             message:"What's the name of daVjncjCorp's latest department?"            
         }
-    ]).then(executiveDesicion=>
-    {
-        console.log(executiveDesicion);
+    ]).then(executiveDesicion=>{
+        console.log("you're getting good at this are you? we love the name: "+executiveDesicion.decision1);
         link.query(
             'INSERT INTO department SET ?',
             {
-                departmentName:executiveDesicion.decision1
+                name:executiveDesicion.decision1
             },
             clog=>{
                 if(clog)throw clog;
@@ -53,7 +53,8 @@ let decisionMaker=()=>{
                 getInMyTesla()
             }
         )
-    })};
+    });
+    
     const defineJobFunctions=()=>{
         console.log('effective logic cheif!');
         inquisition.prompt([
@@ -74,9 +75,9 @@ let decisionMaker=()=>{
                     hireCFO();
                     break;
                 case 'Pause operations for the day':
-                    pauseOperations();                    
+                    getInMyTesla();                    
             }
-        });
+        })};
     const onboardEmployee=()=>{
         console.log('settling into your new position are you?');
         inquisition.prompt([
@@ -85,7 +86,7 @@ let decisionMaker=()=>{
             }
         ])
     }
-    }
+    
     //use user input to seed into database
     //look into how I can create new instances of tables based on user choice
     
@@ -99,7 +100,7 @@ let decisionMaker=()=>{
             name:'desicions',
             type:'list',
             message:'What would you like to do now Mr/Ms CEO?',
-            choices:['Add another department','Define job functions','Onboard employees','Pause operations for day']            
+            choices:['Add another department','Define job functions','Onboard employees','Pause operations for the day']            
         }
     ]).then(executiveDesicion=>{
             switch(executiveDesicion.name){
@@ -113,7 +114,7 @@ let decisionMaker=()=>{
                     getInMyTesla();//hoisted function for concluding app
             }
         })
-    }    
+    }   
     decisionMaker();//app trigger(pew pew)
 
 //take the path of least resistance
