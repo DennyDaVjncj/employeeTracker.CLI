@@ -4,7 +4,7 @@ USE daVjncjCorp_data;
 
 CREATE TABLE department (
     id INT AUTO_INCREMENT NOT NULL,
-    name VARCHAR(25) NOT NULL,
+    deptName VARCHAR(25) NOT NULL,
     PRIMARY KEY (id)
 );
 CREATE TABLE role (
