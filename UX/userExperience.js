@@ -2,11 +2,11 @@ const inquisition=require('inquirer');//interface
 const link=require('../connection/connect');//database connection weaponized
 const pocketProjector=require('console.table')//used to display table data winthin terminal
 
-// console.table([
-//     {
-        
-//     }
-// ])
+console.table([
+    {
+        //needs to be wherever a response is expectaded
+    }
+])
 
 let decisionMaker=()=>{
     inquisition.prompt([
@@ -45,7 +45,7 @@ let decisionMaker=()=>{
         link.query(
             'INSERT INTO department SET ?',
             {
-                name:executiveDesicion.decision1
+                deptName:executiveDesicion.decision1
             },
             clog=>{
                 if(clog)throw clog;

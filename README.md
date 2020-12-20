@@ -41,6 +41,8 @@ Build a command-line application that at a minimum allows the user to:
   * View departments, roles, employees:
   <!-- 
   -make use of the 'console.table' dependancy
+  -my database response
+  -configure fuction that will view tables
   -->
 
   * Update employee roles
